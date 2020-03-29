@@ -1,13 +1,10 @@
 {
   "name": "base-project",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
   "scripts": {
     "serve": "live-server",
     "scss-watch": "watch 'npm run scss-compile' source/styles",
     "scss-compile": "node-sass source/styles/styles.scss > styles/styles.css",
-    "sass-lint": "sass-lint 'source/styles/**/*.scss' -v"
+    "sass-lint": "sass-lint -c sass-lint.yaml 'source/styles/**/*.scss' -v -q"
   },
   "author": "",
   "license": "ISC",
