@@ -23,10 +23,25 @@ body {
 
 
 .dino-book {
+
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 20px;
+
   & .panel-blue {
     background-color: $bg-2-color;
   }
-  
+
+  & .t-rex{
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 2;
+  }
+
+  & .apatosaurus{
+    grid-column: 1 / span 2;
+    grid-row: 6 / span 2;
+  }
+
   & .panel-green {
     background-color: $bg-3-color;
   }
@@ -41,11 +56,11 @@ body {
 }
 
 
-
-
 .panel {
   width: 100%;
   padding: 10px 20px;
+  box-shadow: 2px 2px 5px 2px $shadow-color;
+  position: relative;
 
   &__title {
     text-align: center;
@@ -70,6 +85,10 @@ body {
     list-style-type: none;
     margin: 0;
     padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden;
 
     & .period {
       font-weight: $font-w600;
@@ -83,9 +102,20 @@ body {
       color: $red-1-color;
     }
   }
+
+  &:hover{
+    & .panel__data{
+      visibility: unset;
+
+    }
+  }
 }
 
-
+@media only screen and (max-width: 500px) {
+  .panel__subtitle{
+    display: none;
+  }
+}
 
 @media only screen and (min-width: 1400px) {
   .header,
@@ -109,8 +139,6 @@ body {
       font-size: 100px;
     }
   }
-
-
 
   .panel {
     width: 100%;

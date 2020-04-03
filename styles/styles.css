@@ -15,21 +15,30 @@ body {
     font-size: 60px;
     color: #a52a2a; }
 
-.dino-book .panel-blue {
-  background-color: #d4d9e6; }
-
-.dino-book .panel-green {
-  background-color: #dbeed2; }
-
-.dino-book .panel-red {
-  background-color: #ffebe8; }
-
-.dino-book .panel-yellow {
-  background-color: #fafad2; }
+.dino-book {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px; }
+  .dino-book .panel-blue {
+    background-color: #d4d9e6; }
+  .dino-book .t-rex {
+    grid-column: 3 / span 2;
+    grid-row: 1 / span 2; }
+  .dino-book .apatosaurus {
+    grid-column: 1 / span 2;
+    grid-row: 6 / span 2; }
+  .dino-book .panel-green {
+    background-color: #dbeed2; }
+  .dino-book .panel-red {
+    background-color: #ffebe8; }
+  .dino-book .panel-yellow {
+    background-color: #fafad2; }
 
 .panel {
   width: 100%;
-  padding: 10px 20px; }
+  padding: 10px 20px;
+  box-shadow: 2px 2px 5px 2px rgba(100, 92, 112, 0.425);
+  position: relative; }
   .panel__title {
     text-align: center;
     margin: 0;
@@ -46,13 +55,23 @@ body {
     color: white;
     list-style-type: none;
     margin: 0;
-    padding: 20px; }
+    padding: 20px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    visibility: hidden; }
     .panel__data .period {
       font-weight: 600; }
     .panel__data .height {
       color: #add8e6; }
     .panel__data .weight {
       color: #ff0000; }
+  .panel:hover .panel__data {
+    visibility: unset; }
+
+@media only screen and (max-width: 500px) {
+  .panel__subtitle {
+    display: none; } }
 
 @media only screen and (min-width: 1400px) {
   .header,
